@@ -2188,7 +2188,7 @@ extern __bank0 __bit __timeout;
 
 
 
-unsigned char PWM_period=25, PWM_high=9, PWM_counter=0;
+unsigned char PWM_period=25, PWM_high=0, PWM_counter=0, PWM_set=0;
 
 
 unsigned int time_counter=0;
@@ -2203,17 +2203,48 @@ void main()
 
     while(1)
     {
+# 46 "main.c"
+        _delay((unsigned long)((500)*(8000000/4000000.0)));
+
+        while(PWM_high<PWM_set)
+        {
+            _delay((unsigned long)((1000)*(8000000/4000.0)));
+            PWM_high++;
+        }
+
+        while(PWM_high>PWM_set)
+        {
+            _delay((unsigned long)((1000)*(8000000/4000.0)));
+            PWM_high--;
+        }
 
 
-        PWM_high=3;
-        _delay((unsigned long)((3000)*(8000000/4000.0)));
-        PWM_high=8;
-        _delay((unsigned long)((3000)*(8000000/4000.0)));
-        PWM_high=12;
-        _delay((unsigned long)((3000)*(8000000/4000.0)));
-        PWM_high=25;
-        _delay((unsigned long)((3000)*(8000000/4000.0)));
-# 75 "main.c"
+        if (RA3 == 0) {
+            PWM_set = 12;
+            NoCommandCounter = 0;
+        }
+
+        if (RA1 == 0) {
+            PWM_set = 8;
+            NoCommandCounter = 0;
+        }
+
+        if (RA0 == 0) {
+            PWM_set = 3;
+            NoCommandCounter = 0;
+        }
+
+
+        if ((RA3==1)&&(RA1==1)&&(RA0==1))
+        {
+            NoCommandCounter++;
+            if (NoCommandCounter>=1000)
+            {
+                PWM_set = PWM_period;
+                NoCommandCounter=1000;
+            }
+        }
+
     }
 
 }

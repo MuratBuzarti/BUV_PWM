@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Sun Aug 01 11:01:31 2021
+                                                                                               Sun Aug 01 15:05:25 2021
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	10F322
@@ -202,24 +202,24 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
    188  003F                     	;# 
    189                           
    190                           	psect	idataBANK0
-   191  008B                     __pidataBANK0:
+   191  00BD                     __pidataBANK0:
    192                           
-   193                           ;initializer for _PWM_high
-   194  008B  3409               	retlw	9
-   195                           
-   196                           ;initializer for _PWM_period
-   197  008C  3419               	retlw	25
-   198  0013                     _T2CON	set	19
-   199  0012                     _PR2	set	18
-   200  0009                     _WPUA	set	9
-   201  0008                     _ANSELA	set	8
-   202  0006                     _TRISA	set	6
-   203  0005                     _PORTA	set	5
-   204  0010                     _OSCCON	set	16
-   205  0069                     _TMR2IE	set	105
-   206  005E                     _PEIE	set	94
-   207  0061                     _TMR2IF	set	97
-   208  002A                     _RA2	set	42
+   193                           ;initializer for _PWM_period
+   194  00BD  3419               	retlw	25
+   195  0013                     _T2CON	set	19
+   196  0012                     _PR2	set	18
+   197  0009                     _WPUA	set	9
+   198  0008                     _ANSELA	set	8
+   199  0006                     _TRISA	set	6
+   200  0005                     _PORTA	set	5
+   201  0010                     _OSCCON	set	16
+   202  0069                     _TMR2IE	set	105
+   203  005E                     _PEIE	set	94
+   204  0061                     _TMR2IF	set	97
+   205  002A                     _RA2	set	42
+   206  0028                     _RA0	set	40
+   207  0029                     _RA1	set	41
+   208  002B                     _RA3	set	43
    209  005F                     _GIE	set	95
    210                           
    211                           	psect	cinit
@@ -229,17 +229,17 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
    215  000D                     __initialization:
    216                           
    217                           ; Initialize objects allocated to BANK0
-   218  000D  208B               	fcall	__pidataBANK0	;fetch initializer
-   219  000E  00CB               	movwf	__pdataBANK0& (0+127)
-   220  000F  208C               	fcall	__pidataBANK0+1	;fetch initializer
-   221  0010  00CC               	movwf	(__pdataBANK0+1)& (0+127)
-   222                           
-   223                           ; Clear objects allocated to BANK0
-   224  0011  01C6               	clrf	__pbssBANK0& (0+127)
-   225  0012  01C7               	clrf	(__pbssBANK0+1)& (0+127)
-   226  0013  01C8               	clrf	(__pbssBANK0+2)& (0+127)
-   227  0014  01C9               	clrf	(__pbssBANK0+3)& (0+127)
-   228  0015  01CA               	clrf	(__pbssBANK0+4)& (0+127)
+   218  000D  20BD               	fcall	__pidataBANK0	;fetch initializer
+   219  000E  00CD               	movwf	__pdataBANK0& (0+127)
+   220                           
+   221                           ; Clear objects allocated to BANK0
+   222  000F  01C0               	clrf	__pbssBANK0& (0+127)
+   223  0010  01C1               	clrf	(__pbssBANK0+1)& (0+127)
+   224  0011  01C2               	clrf	(__pbssBANK0+2)& (0+127)
+   225  0012  01C3               	clrf	(__pbssBANK0+3)& (0+127)
+   226  0013  01C4               	clrf	(__pbssBANK0+4)& (0+127)
+   227  0014  01C5               	clrf	(__pbssBANK0+5)& (0+127)
+   228  0015  01C6               	clrf	(__pbssBANK0+6)& (0+127)
    229  0016                     end_of_initialization:	
    230                           ;End of C runtime variable initialization code
    231                           
@@ -248,426 +248,540 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
    234  0017  2818               	ljmp	_main	;jump to C main() function
    235                           
    236                           	psect	bssBANK0
-   237  0046                     __pbssBANK0:
-   238  0046                     _NoCommandCounter:
-   239  0046                     	ds	2
-   240  0048                     _time_counter:
-   241  0048                     	ds	2
-   242  004A                     _PWM_counter:
-   243  004A                     	ds	1
-   244                           
-   245                           	psect	dataBANK0
-   246  004B                     __pdataBANK0:
-   247  004B                     _PWM_high:
-   248  004B                     	ds	1
-   249  004C                     _PWM_period:
-   250  004C                     	ds	1
-   251                           
-   252                           	psect	cstackCOMMON
-   253  0000                     __pcstackCOMMON:
-   254  0000                     ??_init:
-   255                           
-   256                           	psect	cstackBANK0
-   257  0040                     __pcstackBANK0:	
-   258                           ; 1 bytes @ 0x0
-   259                           
-   260  0040                     ?_init:
-   261  0040                     ?_main:	
-   262                           ; 1 bytes @ 0x0
-   263                           
-   264  0040                     ?_tmr2Int:	
-   265                           ; 1 bytes @ 0x0
-   266                           
-   267  0040                     ??_tmr2Int:	
-   268                           ; 1 bytes @ 0x0
-   269                           
-   270                           
-   271                           ; 1 bytes @ 0x0
-   272  0040                     	ds	3
-   273  0043                     ??_main:
-   274                           
-   275                           ; 1 bytes @ 0x3
-   276  0043                     	ds	3
-   277                           
-   278                           	psect	maintext
-   279  0018                     __pmaintext:	
-   280 ;;
-   281 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   237  0040                     __pbssBANK0:
+   238  0040                     _NoCommandCounter:
+   239  0040                     	ds	2
+   240  0042                     _time_counter:
+   241  0042                     	ds	2
+   242  0044                     _PWM_set:
+   243  0044                     	ds	1
+   244  0045                     _PWM_counter:
+   245  0045                     	ds	1
+   246  0046                     _PWM_high:
+   247  0046                     	ds	1
+   248                           
+   249                           	psect	dataBANK0
+   250  004D                     __pdataBANK0:
+   251  004D                     _PWM_period:
+   252  004D                     	ds	1
+   253                           
+   254                           	psect	cstackCOMMON
+   255  0000                     __pcstackCOMMON:
+   256  0000                     ??_init:
+   257                           
+   258                           	psect	cstackBANK0
+   259  0047                     __pcstackBANK0:	
+   260                           ; 1 bytes @ 0x0
+   261                           
+   262  0047                     ?_init:
+   263  0047                     ?_main:	
+   264                           ; 1 bytes @ 0x0
+   265                           
+   266  0047                     ?_tmr2Int:	
+   267                           ; 1 bytes @ 0x0
+   268                           
+   269  0047                     ??_tmr2Int:	
+   270                           ; 1 bytes @ 0x0
+   271                           
+   272                           
+   273                           ; 1 bytes @ 0x0
+   274  0047                     	ds	3
+   275  004A                     ??_main:
+   276                           
+   277                           ; 1 bytes @ 0x3
+   278  004A                     	ds	3
+   279                           
+   280                           	psect	maintext
+   281  0018                     __pmaintext:	
    282 ;;
-   283 ;; *************** function _main *****************
-   284 ;; Defined at:
-   285 ;;		line 28 in file "main.c"
-   286 ;; Parameters:    Size  Location     Type
-   287 ;;		None
-   288 ;; Auto vars:     Size  Location     Type
+   283 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   284 ;;
+   285 ;; *************** function _main *****************
+   286 ;; Defined at:
+   287 ;;		line 28 in file "main.c"
+   288 ;; Parameters:    Size  Location     Type
    289 ;;		None
-   290 ;; Return value:  Size  Location     Type
-   291 ;;                  1    wreg      void 
-   292 ;; Registers used:
-   293 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
-   294 ;; Tracked objects:
-   295 ;;		On entry : B00/0
-   296 ;;		On exit  : 0/0
-   297 ;;		Unchanged: 0/0
-   298 ;; Data sizes:     COMMON   BANK0
-   299 ;;      Params:         0       0
-   300 ;;      Locals:         0       0
-   301 ;;      Temps:          0       3
-   302 ;;      Totals:         0       3
-   303 ;;Total ram usage:        3 bytes
-   304 ;; Hardware stack levels required when called:    2
-   305 ;; This function calls:
-   306 ;;		_init
-   307 ;; This function is called by:
-   308 ;;		Startup code after reset
-   309 ;; This function uses a non-reentrant model
-   310 ;;
-   311                           
-   312                           
-   313                           ;psect for function _main
-   314  0018                     _main:
-   315  0018                     l630:	
-   316                           ;incstack = 0
-   317                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
-   318                           
-   319                           
-   320                           ;main.c: 30:     init();
-   321  0018  207D               	fcall	_init
-   322  0019                     l632:
-   323                           
-   324                           ;main.c: 31:     GIE = 1;
-   325  0019  178B               	bsf	11,7	;volatile
-   326  001A                     l634:
-   327                           
-   328                           ;main.c: 34:     {;main.c: 37:         PWM_high=3;
-   329  001A  3003               	movlw	3
-   330  001B  00FF               	movwf	btemp+1
-   331  001C  087F               	movf	btemp+1,w
-   332  001D  00CB               	movwf	_PWM_high
-   333  001E                     l636:
-   334                           
-   335                           ;main.c: 38:         _delay((unsigned long)((3000)*(8000000/4000.0)));
-   336  001E  301F               	movlw	31
-   337  001F  00C5               	movwf	??_main+2
-   338  0020  3071               	movlw	113
-   339  0021  00C4               	movwf	??_main+1
-   340  0022  301E               	movlw	30
-   341  0023  00C3               	movwf	??_main
-   342  0024                     u57:
-   343  0024  0BC3               	decfsz	??_main,f
-   344  0025  2824               	goto	u57
-   345  0026  0BC4               	decfsz	??_main+1,f
-   346  0027  2824               	goto	u57
-   347  0028  0BC5               	decfsz	??_main+2,f
-   348  0029  2824               	goto	u57
-   349  002A  0000               	nop
-   350  002B                     l638:
-   351                           
-   352                           ;main.c: 39:         PWM_high=8;
-   353  002B  3008               	movlw	8
-   354  002C  00FF               	movwf	btemp+1
-   355  002D  087F               	movf	btemp+1,w
-   356  002E  00CB               	movwf	_PWM_high
-   357  002F                     l640:
-   358                           
-   359                           ;main.c: 40:         _delay((unsigned long)((3000)*(8000000/4000.0)));
-   360  002F  301F               	movlw	31
-   361  0030  00C5               	movwf	??_main+2
-   362  0031  3071               	movlw	113
-   363  0032  00C4               	movwf	??_main+1
-   364  0033  301E               	movlw	30
-   365  0034  00C3               	movwf	??_main
-   366  0035                     u67:
-   367  0035  0BC3               	decfsz	??_main,f
-   368  0036  2835               	goto	u67
-   369  0037  0BC4               	decfsz	??_main+1,f
-   370  0038  2835               	goto	u67
-   371  0039  0BC5               	decfsz	??_main+2,f
-   372  003A  2835               	goto	u67
-   373  003B  0000               	nop
-   374  003C                     l642:
-   375                           
-   376                           ;main.c: 41:         PWM_high=12;
-   377  003C  300C               	movlw	12
-   378  003D  00FF               	movwf	btemp+1
-   379  003E  087F               	movf	btemp+1,w
-   380  003F  00CB               	movwf	_PWM_high
-   381  0040                     l644:
-   382                           
-   383                           ;main.c: 42:         _delay((unsigned long)((3000)*(8000000/4000.0)));
-   384  0040  301F               	movlw	31
-   385  0041  00C5               	movwf	??_main+2
-   386  0042  3071               	movlw	113
-   387  0043  00C4               	movwf	??_main+1
-   388  0044  301E               	movlw	30
-   389  0045  00C3               	movwf	??_main
-   390  0046                     u77:
-   391  0046  0BC3               	decfsz	??_main,f
-   392  0047  2846               	goto	u77
-   393  0048  0BC4               	decfsz	??_main+1,f
-   394  0049  2846               	goto	u77
-   395  004A  0BC5               	decfsz	??_main+2,f
-   396  004B  2846               	goto	u77
-   397  004C  0000               	nop
-   398  004D                     l646:
-   399                           
-   400                           ;main.c: 43:         PWM_high=25;
-   401  004D  3019               	movlw	25
-   402  004E  00FF               	movwf	btemp+1
-   403  004F  087F               	movf	btemp+1,w
-   404  0050  00CB               	movwf	_PWM_high
-   405  0051                     l648:
-   406                           
-   407                           ;main.c: 44:         _delay((unsigned long)((3000)*(8000000/4000.0)));
-   408  0051  301F               	movlw	31
-   409  0052  00C5               	movwf	??_main+2
-   410  0053  3071               	movlw	113
-   411  0054  00C4               	movwf	??_main+1
-   412  0055  301E               	movlw	30
-   413  0056  00C3               	movwf	??_main
-   414  0057                     u87:
-   415  0057  0BC3               	decfsz	??_main,f
-   416  0058  2857               	goto	u87
-   417  0059  0BC4               	decfsz	??_main+1,f
-   418  005A  2857               	goto	u87
-   419  005B  0BC5               	decfsz	??_main+2,f
-   420  005C  2857               	goto	u87
-   421  005D  0000               	nop
-   422  005E  281A               	goto	l634
-   423  005F  280C               	ljmp	start
-   424  0060                     __end_of_main:
-   425                           
-   426                           	psect	text1
-   427  007D                     __ptext1:	
-   428 ;; *************** function _init *****************
-   429 ;; Defined at:
-   430 ;;		line 13 in file "functions.c"
-   431 ;; Parameters:    Size  Location     Type
-   432 ;;		None
-   433 ;; Auto vars:     Size  Location     Type
-   434 ;;		None
-   435 ;; Return value:  Size  Location     Type
-   436 ;;                  1    wreg      void 
-   437 ;; Registers used:
-   438 ;;		wreg, status,2
-   439 ;; Tracked objects:
-   440 ;;		On entry : 0/0
-   441 ;;		On exit  : 0/0
-   442 ;;		Unchanged: 0/0
-   443 ;; Data sizes:     COMMON   BANK0
-   444 ;;      Params:         0       0
-   445 ;;      Locals:         0       0
-   446 ;;      Temps:          0       0
-   447 ;;      Totals:         0       0
-   448 ;;Total ram usage:        0 bytes
-   449 ;; Hardware stack levels used:    1
-   450 ;; Hardware stack levels required when called:    1
-   451 ;; This function calls:
-   452 ;;		Nothing
-   453 ;; This function is called by:
-   454 ;;		_main
-   455 ;; This function uses a non-reentrant model
-   456 ;;
-   457                           
-   458                           
-   459                           ;psect for function _init
-   460  007D                     _init:
-   461  007D                     l614:	
-   462                           ;incstack = 0
-   463                           ; Regs used in _init: [wreg+status,2]
-   464                           
-   465                           
-   466                           ;functions.c: 16:     OSCCON=0b01100000;
-   467  007D  3060               	movlw	96
-   468  007E  0090               	movwf	16	;volatile
-   469  007F                     l616:
+   290 ;; Auto vars:     Size  Location     Type
+   291 ;;		None
+   292 ;; Return value:  Size  Location     Type
+   293 ;;                  1    wreg      void 
+   294 ;; Registers used:
+   295 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   296 ;; Tracked objects:
+   297 ;;		On entry : B00/0
+   298 ;;		On exit  : 0/0
+   299 ;;		Unchanged: 0/0
+   300 ;; Data sizes:     COMMON   BANK0
+   301 ;;      Params:         0       0
+   302 ;;      Locals:         0       0
+   303 ;;      Temps:          0       3
+   304 ;;      Totals:         0       3
+   305 ;;Total ram usage:        3 bytes
+   306 ;; Hardware stack levels required when called:    2
+   307 ;; This function calls:
+   308 ;;		_init
+   309 ;; This function is called by:
+   310 ;;		Startup code after reset
+   311 ;; This function uses a non-reentrant model
+   312 ;;
+   313                           
+   314                           
+   315                           ;psect for function _main
+   316  0018                     _main:
+   317  0018                     l675:	
+   318                           ;incstack = 0
+   319                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   320                           
+   321                           
+   322                           ;main.c: 30:     init();
+   323  0018  20AF               	fcall	_init
+   324  0019                     l677:
+   325                           
+   326                           ;main.c: 31:     GIE = 1;
+   327  0019  178B               	bsf	11,7	;volatile
+   328  001A                     l679:
+   329                           
+   330                           ;main.c: 34:     {;main.c: 46:         _delay((unsigned long)((500)*(8000000/4000000.0))
+      +                          );
+   331  001A  30C7               	movlw	199
+   332  001B  00CA               	movwf	??_main
+   333  001C                     u237:
+   334  001C  281D               	nop2
+   335  001D  0BCA               	decfsz	??_main,f
+   336  001E  281C               	goto	u237
+   337  001F  2820               	nop2
+   338  0020  2821               	nop2
+   339                           
+   340                           ;main.c: 48:         while(PWM_high<PWM_set)
+   341  0021  2833               	goto	l685
+   342  0022                     l681:
+   343                           
+   344                           ;main.c: 49:         {;main.c: 50:             _delay((unsigned long)((1000)*(8000000/40
+      +                          00.0)));
+   345  0022  300B               	movlw	11
+   346  0023  00CC               	movwf	??_main+2
+   347  0024  3026               	movlw	38
+   348  0025  00CB               	movwf	??_main+1
+   349  0026  305D               	movlw	93
+   350  0027  00CA               	movwf	??_main
+   351  0028                     u247:
+   352  0028  0BCA               	decfsz	??_main,f
+   353  0029  2828               	goto	u247
+   354  002A  0BCB               	decfsz	??_main+1,f
+   355  002B  2828               	goto	u247
+   356  002C  0BCC               	decfsz	??_main+2,f
+   357  002D  2828               	goto	u247
+   358  002E  282F               	nop2
+   359  002F                     l683:
+   360                           
+   361                           ;main.c: 51:             PWM_high++;
+   362  002F  3001               	movlw	1
+   363  0030  00FF               	movwf	btemp+1
+   364  0031  087F               	movf	btemp+1,w
+   365  0032  07C6               	addwf	_PWM_high,f
+   366  0033                     l685:
+   367                           
+   368                           ;main.c: 48:         while(PWM_high<PWM_set)
+   369  0033  0844               	movf	_PWM_set,w
+   370  0034  0246               	subwf	_PWM_high,w
+   371  0035  1C03               	skipc
+   372  0036  2838               	goto	u121
+   373  0037  2839               	goto	u120
+   374  0038                     u121:
+   375  0038  2822               	goto	l681
+   376  0039                     u120:
+   377  0039  2849               	goto	l691
+   378  003A                     l687:
+   379                           
+   380                           ;main.c: 55:         {;main.c: 56:             _delay((unsigned long)((1000)*(8000000/40
+      +                          00.0)));
+   381  003A  300B               	movlw	11
+   382  003B  00CC               	movwf	??_main+2
+   383  003C  3026               	movlw	38
+   384  003D  00CB               	movwf	??_main+1
+   385  003E  305D               	movlw	93
+   386  003F  00CA               	movwf	??_main
+   387  0040                     u257:
+   388  0040  0BCA               	decfsz	??_main,f
+   389  0041  2840               	goto	u257
+   390  0042  0BCB               	decfsz	??_main+1,f
+   391  0043  2840               	goto	u257
+   392  0044  0BCC               	decfsz	??_main+2,f
+   393  0045  2840               	goto	u257
+   394  0046  2847               	nop2
+   395  0047                     l689:
+   396                           
+   397                           ;main.c: 57:             PWM_high--;
+   398  0047  3001               	movlw	1
+   399  0048  02C6               	subwf	_PWM_high,f
+   400  0049                     l691:
+   401                           
+   402                           ;main.c: 54:         while(PWM_high>PWM_set)
+   403  0049  0846               	movf	_PWM_high,w
+   404  004A  0244               	subwf	_PWM_set,w
+   405  004B  1C03               	skipc
+   406  004C  284E               	goto	u131
+   407  004D  284F               	goto	u130
+   408  004E                     u131:
+   409  004E  283A               	goto	l687
+   410  004F                     u130:
+   411  004F                     l39:
+   412                           
+   413                           ;main.c: 61:         if (RA3 == 0) {
+   414  004F  1985               	btfsc	5,3	;volatile
+   415  0050  2852               	goto	u141
+   416  0051  2853               	goto	u140
+   417  0052                     u141:
+   418  0052  2859               	goto	l697
+   419  0053                     u140:
+   420  0053                     l693:
+   421                           
+   422                           ;main.c: 62:             PWM_set = 12;
+   423  0053  300C               	movlw	12
+   424  0054  00FF               	movwf	btemp+1
+   425  0055  087F               	movf	btemp+1,w
+   426  0056  00C4               	movwf	_PWM_set
+   427  0057                     l695:
+   428                           
+   429                           ;main.c: 63:             NoCommandCounter = 0;
+   430  0057  01C0               	clrf	_NoCommandCounter
+   431  0058  01C1               	clrf	_NoCommandCounter+1
+   432  0059                     l697:
+   433                           
+   434                           ;main.c: 66:         if (RA1 == 0) {
+   435  0059  1885               	btfsc	5,1	;volatile
+   436  005A  285C               	goto	u151
+   437  005B  285D               	goto	u150
+   438  005C                     u151:
+   439  005C  2863               	goto	l703
+   440  005D                     u150:
+   441  005D                     l699:
+   442                           
+   443                           ;main.c: 67:             PWM_set = 8;
+   444  005D  3008               	movlw	8
+   445  005E  00FF               	movwf	btemp+1
+   446  005F  087F               	movf	btemp+1,w
+   447  0060  00C4               	movwf	_PWM_set
+   448  0061                     l701:
+   449                           
+   450                           ;main.c: 68:             NoCommandCounter = 0;
+   451  0061  01C0               	clrf	_NoCommandCounter
+   452  0062  01C1               	clrf	_NoCommandCounter+1
+   453  0063                     l703:
+   454                           
+   455                           ;main.c: 71:         if (RA0 == 0) {
+   456  0063  1805               	btfsc	5,0	;volatile
+   457  0064  2866               	goto	u161
+   458  0065  2867               	goto	u160
+   459  0066                     u161:
+   460  0066  286D               	goto	l709
+   461  0067                     u160:
+   462  0067                     l705:
+   463                           
+   464                           ;main.c: 72:             PWM_set = 3;
+   465  0067  3003               	movlw	3
+   466  0068  00FF               	movwf	btemp+1
+   467  0069  087F               	movf	btemp+1,w
+   468  006A  00C4               	movwf	_PWM_set
+   469  006B                     l707:
    470                           
-   471                           ;functions.c: 19:     PORTA=0;
-   472  007F  0185               	clrf	5	;volatile
-   473  0080                     l618:
-   474                           
-   475                           ;functions.c: 20:     TRISA=0b00001011;
-   476  0080  300B               	movlw	11
-   477  0081  0086               	movwf	6	;volatile
-   478                           
-   479                           ;functions.c: 21:     ANSELA=0;
-   480  0082  0188               	clrf	8	;volatile
-   481                           
-   482                           ;functions.c: 22:     WPUA=0;
-   483  0083  0189               	clrf	9	;volatile
-   484  0084                     l620:
-   485                           
-   486                           ;functions.c: 25:     PR2=50;
-   487  0084  3032               	movlw	50
-   488  0085  0092               	movwf	18	;volatile
-   489  0086                     l622:
-   490                           
-   491                           ;functions.c: 26:     T2CON=0b00000100;
-   492  0086  3004               	movlw	4
-   493  0087  0093               	movwf	19	;volatile
-   494  0088                     l624:
-   495                           
-   496                           ;functions.c: 29:     PEIE=1;
-   497  0088  170B               	bsf	11,6	;volatile
-   498  0089                     l626:
-   499                           
-   500                           ;functions.c: 30:     TMR2IE=1;
-   501  0089  148D               	bsf	13,1	;volatile
-   502  008A                     l56:
-   503  008A  0008               	return
-   504  008B                     __end_of_init:
-   505                           
-   506                           	psect	text2
-   507  0060                     __ptext2:	
-   508 ;; *************** function _tmr2Int *****************
-   509 ;; Defined at:
-   510 ;;		line 81 in file "main.c"
-   511 ;; Parameters:    Size  Location     Type
-   512 ;;		None
-   513 ;; Auto vars:     Size  Location     Type
-   514 ;;		None
-   515 ;; Return value:  Size  Location     Type
-   516 ;;                  1    wreg      void 
-   517 ;; Registers used:
-   518 ;;		wreg, status,2, status,0, btemp+1
-   519 ;; Tracked objects:
-   520 ;;		On entry : 0/0
-   521 ;;		On exit  : 0/0
-   522 ;;		Unchanged: 0/0
-   523 ;; Data sizes:     COMMON   BANK0
-   524 ;;      Params:         0       0
-   525 ;;      Locals:         0       0
-   526 ;;      Temps:          0       3
-   527 ;;      Totals:         0       3
-   528 ;;Total ram usage:        3 bytes
-   529 ;; Hardware stack levels used:    1
-   530 ;; This function calls:
-   531 ;;		Nothing
-   532 ;; This function is called by:
-   533 ;;		Interrupt level 1
-   534 ;; This function uses a non-reentrant model
-   535 ;;
+   471                           ;main.c: 73:             NoCommandCounter = 0;
+   472  006B  01C0               	clrf	_NoCommandCounter
+   473  006C  01C1               	clrf	_NoCommandCounter+1
+   474  006D                     l709:
+   475                           
+   476                           ;main.c: 77:         if ((RA3==1)&&(RA1==1)&&(RA0==1))
+   477  006D  1D85               	btfss	5,3	;volatile
+   478  006E  2870               	goto	u171
+   479  006F  2871               	goto	u170
+   480  0070                     u171:
+   481  0070  281A               	goto	l679
+   482  0071                     u170:
+   483  0071                     l711:
+   484  0071  1C85               	btfss	5,1	;volatile
+   485  0072  2874               	goto	u181
+   486  0073  2875               	goto	u180
+   487  0074                     u181:
+   488  0074  281A               	goto	l679
+   489  0075                     u180:
+   490  0075                     l713:
+   491  0075  1C05               	btfss	5,0	;volatile
+   492  0076  2878               	goto	u191
+   493  0077  2879               	goto	u190
+   494  0078                     u191:
+   495  0078  281A               	goto	l679
+   496  0079                     u190:
+   497  0079                     l715:
+   498                           
+   499                           ;main.c: 78:         {;main.c: 79:             NoCommandCounter++;
+   500  0079  3001               	movlw	1
+   501  007A  07C0               	addwf	_NoCommandCounter,f
+   502  007B  1803               	skipnc
+   503  007C  0AC1               	incf	_NoCommandCounter+1,f
+   504  007D  3000               	movlw	0
+   505  007E  07C1               	addwf	_NoCommandCounter+1,f
+   506                           
+   507                           ;main.c: 80:             if (NoCommandCounter>=1000)
+   508  007F  3003               	movlw	3
+   509  0080  0241               	subwf	_NoCommandCounter+1,w
+   510  0081  30E8               	movlw	232
+   511  0082  1903               	skipnz
+   512  0083  0240               	subwf	_NoCommandCounter,w
+   513  0084  1C03               	skipc
+   514  0085  2887               	goto	u201
+   515  0086  2888               	goto	u200
+   516  0087                     u201:
+   517  0087  281A               	goto	l679
+   518  0088                     u200:
+   519  0088                     l717:
+   520                           
+   521                           ;main.c: 81:             {;main.c: 82:                 PWM_set = PWM_period;
+   522  0088  084D               	movf	_PWM_period,w
+   523  0089  00FF               	movwf	btemp+1
+   524  008A  087F               	movf	btemp+1,w
+   525  008B  00C4               	movwf	_PWM_set
+   526  008C                     l719:
+   527                           
+   528                           ;main.c: 83:                 NoCommandCounter=1000;
+   529  008C  30E8               	movlw	232
+   530  008D  00C0               	movwf	_NoCommandCounter
+   531  008E  3003               	movlw	3
+   532  008F  00C1               	movwf	_NoCommandCounter+1
+   533  0090  281A               	goto	l679
+   534  0091  280C               	ljmp	start
+   535  0092                     __end_of_main:
    536                           
-   537                           
-   538                           ;psect for function _tmr2Int
-   539  0060                     _tmr2Int:
-   540  0060                     i1l650:
-   541                           
-   542                           ;main.c: 83:     PWM_counter++;
-   543  0060  3001               	movlw	1
-   544  0061  00FF               	movwf	btemp+1
-   545  0062  087F               	movf	btemp+1,w
-   546  0063  07CA               	addwf	_PWM_counter,f
-   547  0064                     i1l652:
-   548                           
-   549                           ;main.c: 85:     if(PWM_counter>=PWM_period)
-   550  0064  084C               	movf	_PWM_period,w
-   551  0065  024A               	subwf	_PWM_counter,w
-   552  0066  1C03               	skipc
-   553  0067  2869               	goto	u3_21
-   554  0068  286A               	goto	u3_20
-   555  0069                     u3_21:
-   556  0069  286C               	goto	i1l658
-   557  006A                     u3_20:
-   558  006A                     i1l654:
-   559                           
-   560                           ;main.c: 86:     {;main.c: 87:         RA2=1;
-   561  006A  1505               	bsf	5,2	;volatile
-   562  006B                     i1l656:
-   563                           
-   564                           ;main.c: 88:         PWM_counter=0;
-   565  006B  01CA               	clrf	_PWM_counter
-   566  006C                     i1l658:
-   567                           
-   568                           ;main.c: 91:     if(PWM_counter>=PWM_high)
-   569  006C  084B               	movf	_PWM_high,w
-   570  006D  024A               	subwf	_PWM_counter,w
-   571  006E  1C03               	skipc
-   572  006F  2871               	goto	u4_21
-   573  0070  2872               	goto	u4_20
-   574  0071                     u4_21:
-   575  0071  2873               	goto	i1l34
-   576  0072                     u4_20:
-   577  0072                     i1l660:
-   578                           
-   579                           ;main.c: 92:     {;main.c: 93:         RA2=0;
-   580  0072  1105               	bcf	5,2	;volatile
-   581  0073                     i1l34:	
-   582                           ;main.c: 94:     }
-   583                           
-   584                           
-   585                           ;main.c: 96:     TMR2IF=0;
-   586  0073  108C               	bcf	12,1	;volatile
-   587  0074                     i1l35:	
-   588                           ;main.c: 97:     return;
+   537                           	psect	text1
+   538  00AF                     __ptext1:	
+   539 ;; *************** function _init *****************
+   540 ;; Defined at:
+   541 ;;		line 13 in file "functions.c"
+   542 ;; Parameters:    Size  Location     Type
+   543 ;;		None
+   544 ;; Auto vars:     Size  Location     Type
+   545 ;;		None
+   546 ;; Return value:  Size  Location     Type
+   547 ;;                  1    wreg      void 
+   548 ;; Registers used:
+   549 ;;		wreg, status,2
+   550 ;; Tracked objects:
+   551 ;;		On entry : 0/0
+   552 ;;		On exit  : 0/0
+   553 ;;		Unchanged: 0/0
+   554 ;; Data sizes:     COMMON   BANK0
+   555 ;;      Params:         0       0
+   556 ;;      Locals:         0       0
+   557 ;;      Temps:          0       0
+   558 ;;      Totals:         0       0
+   559 ;;Total ram usage:        0 bytes
+   560 ;; Hardware stack levels used:    1
+   561 ;; Hardware stack levels required when called:    1
+   562 ;; This function calls:
+   563 ;;		Nothing
+   564 ;; This function is called by:
+   565 ;;		_main
+   566 ;; This function uses a non-reentrant model
+   567 ;;
+   568                           
+   569                           
+   570                           ;psect for function _init
+   571  00AF                     _init:
+   572  00AF                     l659:	
+   573                           ;incstack = 0
+   574                           ; Regs used in _init: [wreg+status,2]
+   575                           
+   576                           
+   577                           ;functions.c: 16:     OSCCON=0b01100000;
+   578  00AF  3060               	movlw	96
+   579  00B0  0090               	movwf	16	;volatile
+   580  00B1                     l661:
+   581                           
+   582                           ;functions.c: 19:     PORTA=0;
+   583  00B1  0185               	clrf	5	;volatile
+   584  00B2                     l663:
+   585                           
+   586                           ;functions.c: 20:     TRISA=0b00001011;
+   587  00B2  300B               	movlw	11
+   588  00B3  0086               	movwf	6	;volatile
    589                           
-   590  0074  0842               	movf	??_tmr2Int+2,w
-   591  0075  00FF               	movwf	btemp+1
-   592  0076  0841               	movf	??_tmr2Int+1,w
-   593  0077  008A               	movwf	10
-   594  0078  0E40               	swapf	??_tmr2Int^0,w
-   595  0079  0083               	movwf	3
-   596  007A  0EFE               	swapf	btemp,f
-   597  007B  0E7E               	swapf	btemp,w
-   598  007C  0009               	retfie
-   599  007D                     __end_of_tmr2Int:
-   600  007E                     btemp	set	126	;btemp
-   601  007E                     wtemp0	set	126
-   602                           
-   603                           	psect	intentry
-   604  0004                     __pintentry:	
-   605                           ;incstack = 0
-   606                           ; Regs used in _tmr2Int: [wreg+status,2+status,0+btemp+1]
-   607                           
-   608  0004                     interrupt_function:
-   609  007E                     saved_w	set	btemp
-   610  0004  00FE               	movwf	btemp
-   611  0005  0E03               	swapf	3,w
-   612  0006  00C0               	movwf	??_tmr2Int
-   613  0007  080A               	movf	10,w
-   614  0008  00C1               	movwf	??_tmr2Int+1
-   615  0009  087F               	movf	btemp+1,w
-   616  000A  00C2               	movwf	??_tmr2Int+2
-   617  000B  2860               	ljmp	_tmr2Int
-   618                           
-   619                           	psect	config
-   620                           
-   621                           ;Config register CONFIG @ 0x2007
-   622                           ;	Oscillator Selection bits
-   623                           ;	FOSC = INTOSC, INTOSC oscillator: CLKIN function disabled
-   624                           ;	Brown-out Reset Enable
-   625                           ;	BOREN = ON, Brown-out Reset enabled
-   626                           ;	Watchdog Timer Enable
-   627                           ;	WDTE = OFF, WDT disabled
-   628                           ;	Power-up Timer Enable bit
-   629                           ;	PWRTE = ON, PWRT enabled
-   630                           ;	MCLR Pin Function Select bit
-   631                           ;	MCLRE = OFF, MCLR pin function is digital input, MCLR internally tied to VDD
-   632                           ;	Code Protection bit
-   633                           ;	CP = ON, Program memory code protection is enabled
-   634                           ;	Low-Voltage Programming Enable
-   635                           ;	LVP = OFF, High-voltage on MCLR/VPP must be used for programming
-   636                           ;	Brown-out Reset Selection bits
-   637                           ;	LPBOR = ON, BOR enabled
-   638                           ;	Brown-out Reset Voltage Selection
-   639                           ;	BORV = HI, Brown-out Reset Voltage (Vbor), high trip point selected.
-   640                           ;	Flash Memory Self-Write Protection
-   641                           ;	WRT = ALL, 000h to 1FFh write protected, no addresses may be modified by PMCON control
-   642  2007                     	org	8199
-   643  2007  2206               	dw	8710
+   590                           ;functions.c: 21:     ANSELA=0;
+   591  00B4  0188               	clrf	8	;volatile
+   592                           
+   593                           ;functions.c: 22:     WPUA=0;
+   594  00B5  0189               	clrf	9	;volatile
+   595  00B6                     l665:
+   596                           
+   597                           ;functions.c: 25:     PR2=50;
+   598  00B6  3032               	movlw	50
+   599  00B7  0092               	movwf	18	;volatile
+   600  00B8                     l667:
+   601                           
+   602                           ;functions.c: 26:     T2CON=0b00000100;
+   603  00B8  3004               	movlw	4
+   604  00B9  0093               	movwf	19	;volatile
+   605  00BA                     l669:
+   606                           
+   607                           ;functions.c: 29:     PEIE=1;
+   608  00BA  170B               	bsf	11,6	;volatile
+   609  00BB                     l671:
+   610                           
+   611                           ;functions.c: 30:     TMR2IE=1;
+   612  00BB  148D               	bsf	13,1	;volatile
+   613  00BC                     l75:
+   614  00BC  0008               	return
+   615  00BD                     __end_of_init:
+   616                           
+   617                           	psect	text2
+   618  0092                     __ptext2:	
+   619 ;; *************** function _tmr2Int *****************
+   620 ;; Defined at:
+   621 ;;		line 93 in file "main.c"
+   622 ;; Parameters:    Size  Location     Type
+   623 ;;		None
+   624 ;; Auto vars:     Size  Location     Type
+   625 ;;		None
+   626 ;; Return value:  Size  Location     Type
+   627 ;;                  1    wreg      void 
+   628 ;; Registers used:
+   629 ;;		wreg, status,2, status,0, btemp+1
+   630 ;; Tracked objects:
+   631 ;;		On entry : 0/0
+   632 ;;		On exit  : 0/0
+   633 ;;		Unchanged: 0/0
+   634 ;; Data sizes:     COMMON   BANK0
+   635 ;;      Params:         0       0
+   636 ;;      Locals:         0       0
+   637 ;;      Temps:          0       3
+   638 ;;      Totals:         0       3
+   639 ;;Total ram usage:        3 bytes
+   640 ;; Hardware stack levels used:    1
+   641 ;; This function calls:
+   642 ;;		Nothing
+   643 ;; This function is called by:
+   644 ;;		Interrupt level 1
+   645 ;; This function uses a non-reentrant model
+   646 ;;
+   647                           
+   648                           
+   649                           ;psect for function _tmr2Int
+   650  0092                     _tmr2Int:
+   651  0092                     i1l721:
+   652                           
+   653                           ;main.c: 95:     PWM_counter++;
+   654  0092  3001               	movlw	1
+   655  0093  00FF               	movwf	btemp+1
+   656  0094  087F               	movf	btemp+1,w
+   657  0095  07C5               	addwf	_PWM_counter,f
+   658  0096                     i1l723:
+   659                           
+   660                           ;main.c: 97:     if(PWM_counter>=PWM_period)
+   661  0096  084D               	movf	_PWM_period,w
+   662  0097  0245               	subwf	_PWM_counter,w
+   663  0098  1C03               	skipc
+   664  0099  289B               	goto	u21_21
+   665  009A  289C               	goto	u21_20
+   666  009B                     u21_21:
+   667  009B  289E               	goto	i1l729
+   668  009C                     u21_20:
+   669  009C                     i1l725:
+   670                           
+   671                           ;main.c: 98:     {;main.c: 99:         RA2=1;
+   672  009C  1505               	bsf	5,2	;volatile
+   673  009D                     i1l727:
+   674                           
+   675                           ;main.c: 100:         PWM_counter=0;
+   676  009D  01C5               	clrf	_PWM_counter
+   677  009E                     i1l729:
+   678                           
+   679                           ;main.c: 103:     if(PWM_counter>=PWM_high)
+   680  009E  0846               	movf	_PWM_high,w
+   681  009F  0245               	subwf	_PWM_counter,w
+   682  00A0  1C03               	skipc
+   683  00A1  28A3               	goto	u22_21
+   684  00A2  28A4               	goto	u22_20
+   685  00A3                     u22_21:
+   686  00A3  28A5               	goto	i1l53
+   687  00A4                     u22_20:
+   688  00A4                     i1l731:
+   689                           
+   690                           ;main.c: 104:     {;main.c: 105:         RA2=0;
+   691  00A4  1105               	bcf	5,2	;volatile
+   692  00A5                     i1l53:	
+   693                           ;main.c: 106:     }
+   694                           
+   695                           
+   696                           ;main.c: 108:     TMR2IF=0;
+   697  00A5  108C               	bcf	12,1	;volatile
+   698  00A6                     i1l54:	
+   699                           ;main.c: 109:     return;
+   700                           
+   701  00A6  0849               	movf	??_tmr2Int+2,w
+   702  00A7  00FF               	movwf	btemp+1
+   703  00A8  0848               	movf	??_tmr2Int+1,w
+   704  00A9  008A               	movwf	10
+   705  00AA  0E47               	swapf	??_tmr2Int^0,w
+   706  00AB  0083               	movwf	3
+   707  00AC  0EFE               	swapf	btemp,f
+   708  00AD  0E7E               	swapf	btemp,w
+   709  00AE  0009               	retfie
+   710  00AF                     __end_of_tmr2Int:
+   711  007E                     btemp	set	126	;btemp
+   712  007E                     wtemp0	set	126
+   713                           
+   714                           	psect	intentry
+   715  0004                     __pintentry:	
+   716                           ;incstack = 0
+   717                           ; Regs used in _tmr2Int: [wreg+status,2+status,0+btemp+1]
+   718                           
+   719  0004                     interrupt_function:
+   720  007E                     saved_w	set	btemp
+   721  0004  00FE               	movwf	btemp
+   722  0005  0E03               	swapf	3,w
+   723  0006  00C7               	movwf	??_tmr2Int
+   724  0007  080A               	movf	10,w
+   725  0008  00C8               	movwf	??_tmr2Int+1
+   726  0009  087F               	movf	btemp+1,w
+   727  000A  00C9               	movwf	??_tmr2Int+2
+   728  000B  2892               	ljmp	_tmr2Int
+   729                           
+   730                           	psect	config
+   731                           
+   732                           ;Config register CONFIG @ 0x2007
+   733                           ;	Oscillator Selection bits
+   734                           ;	FOSC = INTOSC, INTOSC oscillator: CLKIN function disabled
+   735                           ;	Brown-out Reset Enable
+   736                           ;	BOREN = ON, Brown-out Reset enabled
+   737                           ;	Watchdog Timer Enable
+   738                           ;	WDTE = OFF, WDT disabled
+   739                           ;	Power-up Timer Enable bit
+   740                           ;	PWRTE = ON, PWRT enabled
+   741                           ;	MCLR Pin Function Select bit
+   742                           ;	MCLRE = OFF, MCLR pin function is digital input, MCLR internally tied to VDD
+   743                           ;	Code Protection bit
+   744                           ;	CP = ON, Program memory code protection is enabled
+   745                           ;	Low-Voltage Programming Enable
+   746                           ;	LVP = OFF, High-voltage on MCLR/VPP must be used for programming
+   747                           ;	Brown-out Reset Selection bits
+   748                           ;	LPBOR = ON, BOR enabled
+   749                           ;	Brown-out Reset Voltage Selection
+   750                           ;	BORV = HI, Brown-out Reset Voltage (Vbor), high trip point selected.
+   751                           ;	Flash Memory Self-Write Protection
+   752                           ;	WRT = ALL, 000h to 1FFh write protected, no addresses may be modified by PMCON control
+   753  2007                     	org	8199
+   754  2007  2206               	dw	8710
 
 Data Sizes:
     Strings     0
     Constant    0
-    Data        2
-    BSS         5
+    Data        1
+    BSS         7
     Persistent  0
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON            0      0       0
-    BANK0            62      6      13
+    BANK0            62      6      14
 
 Pointer List with Targets:
 
@@ -719,49 +833,60 @@ Call Graph Tables:
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BANK0               3E      6       D       3       21.0%
+BANK0               3E      6       E       3       22.6%
 BITBANK0            3E      0       0       6        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR0              0      0       0       1        0.0%
 COMMON               0      0       0       1        0.0%
 BITCOMMON            0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-DATA                 0      0       D       5        0.0%
-ABS                  0      0       D       4        0.0%
+DATA                 0      0       E       5        0.0%
+ABS                  0      0       E       4        0.0%
 NULL                 0      0       0       0        0.0%
 STACK                0      0       0       2        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Sun Aug 01 11:01:31 2021
+Symbol Table                                                                                   Sun Aug 01 15:05:25 2021
 
-                     l56 008A                       u57 0024                       u67 0035  
-                     u77 0046                       u87 0057                      l620 0084  
-                    l622 0086                      l614 007D                      l630 0018  
-                    l624 0088                      l616 007F                      l640 002F  
-                    l632 0019                      l626 0089                      l618 0080  
-                    l642 003C                      l634 001A                      l644 0040  
-                    l636 001E                      l646 004D                      l638 002B  
-                    l648 0051                      _GIE 005F                      _RA2 002A  
-                    _PR2 0012               _PWM_period 004C                     _PEIE 005E  
-                   i1l34 0073                     i1l35 0074         _NoCommandCounter 0046  
-                   _WPUA 0009                     u3_20 006A                     u3_21 0069  
-                   u4_20 0072                     u4_21 0071                     _main 0018  
-                   _init 007D                     btemp 007E              _PWM_counter 004A  
-                   start 000C                    ?_main 0040                    ?_init 0040  
-                  _T2CON 0013                    i1l650 0060                    i1l660 0072  
-                  i1l652 0064                    i1l654 006A                    i1l656 006B  
-                  i1l658 006C                    _PORTA 0005                    _TRISA 0006  
-        __end_of_tmr2Int 007D                    pclath 000A                    status 0003  
-                  wtemp0 007E          __initialization 000D             __end_of_main 0060  
-           __end_of_init 008B                   ??_main 0043                   ??_init 0000  
-                 _ANSELA 0008                   _OSCCON 0010                   _TMR2IE 0069  
-                 _TMR2IF 0061                ??_tmr2Int 0040                   saved_w 007E  
-__end_of__initialization 0016           __pcstackCOMMON 0000             __pidataBANK0 008B  
-             __pbssBANK0 0046               __pmaintext 0018               __pintentry 0004  
-                __ptext1 007D                  __ptext2 0060                  _tmr2Int 0060  
-   end_of_initialization 0016      start_initialization 000D              __pdataBANK0 004B  
-              ___latbits 0000            __pcstackBANK0 0040                 ?_tmr2Int 0040  
-      interrupt_function 0004                 _PWM_high 004B         __size_of_tmr2Int 001D  
-          __size_of_main 0048            __size_of_init 000E             _time_counter 0048  
-               intlevel1 0000  
+                     l39 004F                       l75 00BC                      l701 0061  
+                    l711 0071                      l703 0063                      l713 0075  
+                    l705 0067                      l715 0079                      l707 006B  
+                    l661 00B1                      l717 0088                      l709 006D  
+                    l671 00BB                      l663 00B2                      l719 008C  
+                    l665 00B6                      l681 0022                      l667 00B8  
+                    l659 00AF                      l691 0049                      l683 002F  
+                    l675 0018                      l669 00BA                      l693 0053  
+                    l685 0033                      l677 0019                      l695 0057  
+                    l687 003A                      l679 001A                      l697 0059  
+                    l689 0047                      l699 005D                      _GIE 005F  
+                    _RA0 0028                      _RA1 0029                      _RA2 002A  
+                    _RA3 002B                      u200 0088                      u120 0039  
+                    u201 0087                      u121 0038                      u130 004F  
+                    u131 004E                      u140 0053                      u141 0052  
+                    u150 005D                      u151 005C                      u160 0067  
+                    u161 0066                      u170 0071                      u171 0070  
+                    u180 0075                      u181 0074                      u237 001C  
+                    u190 0079                      _PR2 0012                      u191 0078  
+                    u247 0028                      u257 0040               _PWM_period 004D  
+                   _PEIE 005E                     i1l53 00A5                     i1l54 00A6  
+       _NoCommandCounter 0040                     _WPUA 0009                     _main 0018  
+                   _init 00AF                     btemp 007E              _PWM_counter 0045  
+                   start 000C                    ?_main 0047                    ?_init 0047  
+                  _T2CON 0013                    i1l721 0092                    i1l731 00A4  
+                  i1l723 0096                    i1l725 009C                    i1l727 009D  
+                  i1l729 009E                    u21_20 009C                    u21_21 009B  
+                  u22_20 00A4                    u22_21 00A3                    _PORTA 0005  
+                  _TRISA 0006          __end_of_tmr2Int 00AF                    pclath 000A  
+                  status 0003                    wtemp0 007E          __initialization 000D  
+           __end_of_main 0092             __end_of_init 00BD                   ??_main 004A  
+                 ??_init 0000                   _ANSELA 0008                   _OSCCON 0010  
+                 _TMR2IE 0069                   _TMR2IF 0061                ??_tmr2Int 0047  
+                 saved_w 007E  __end_of__initialization 0016           __pcstackCOMMON 0000  
+           __pidataBANK0 00BD               __pbssBANK0 0040               __pmaintext 0018  
+             __pintentry 0004                  _PWM_set 0044                  __ptext1 00AF  
+                __ptext2 0092                  _tmr2Int 0092     end_of_initialization 0016  
+    start_initialization 000D              __pdataBANK0 004D                ___latbits 0000  
+          __pcstackBANK0 0047                 ?_tmr2Int 0047        interrupt_function 0004  
+               _PWM_high 0046         __size_of_tmr2Int 001D            __size_of_main 007A  
+          __size_of_init 000E             _time_counter 0042                 intlevel1 0000  

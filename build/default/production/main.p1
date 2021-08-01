@@ -10,9 +10,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\pic.h
 [v __delay `JF1134 ~T0 @X0 0 e ]
 [p i __delay ]
+"4012 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic10f322.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic10f322.h: 4012: extern volatile __bit RA3 __attribute__((address(0x2B)));
+[v _RA3 `Vb ~T0 @X0 0 e@43 ]
+"4006
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic10f322.h: 4006: extern volatile __bit RA1 __attribute__((address(0x29)));
+[v _RA1 `Vb ~T0 @X0 0 e@41 ]
+"4003
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic10f322.h: 4003: extern volatile __bit RA0 __attribute__((address(0x28)));
+[v _RA0 `Vb ~T0 @X0 0 e@40 ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
-"4009 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic10f322.h
+"4009
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic10f322.h: 4009: extern volatile __bit RA2 __attribute__((address(0x2A)));
 [v _RA2 `Vb ~T0 @X0 0 e@42 ]
 "4051
@@ -226,17 +235,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic10f322.h: 3198: __asm("BORCON equ 03Fh");
 [; <" BORCON equ 03Fh ;# ">
 "20 main.c
-[; ;main.c: 20: unsigned char PWM_period=25, PWM_high=9, PWM_counter=0;
+[; ;main.c: 20: unsigned char PWM_period=25, PWM_high=0, PWM_counter=0, PWM_set=0;
 [v _PWM_period `uc ~T0 @X0 1 e ]
 [i _PWM_period
 -> -> 25 `i `uc
 ]
 [v _PWM_high `uc ~T0 @X0 1 e ]
 [i _PWM_high
--> -> 9 `i `uc
+-> -> 0 `i `uc
 ]
 [v _PWM_counter `uc ~T0 @X0 1 e ]
 [i _PWM_counter
+-> -> 0 `i `uc
+]
+[v _PWM_set `uc ~T0 @X0 1 e ]
+[i _PWM_set
 -> -> 0 `i `uc
 ]
 "23
@@ -272,88 +285,180 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;main.c: 34:     {
 {
-"37
-[; ;main.c: 37:         PWM_high=3;
-[e = _PWM_high -> -> 3 `i `uc ]
-"38
-[; ;main.c: 38:         _delay((unsigned long)((3000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"39
-[; ;main.c: 39:         PWM_high=8;
-[e = _PWM_high -> -> 8 `i `uc ]
-"40
-[; ;main.c: 40:         _delay((unsigned long)((3000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"41
-[; ;main.c: 41:         PWM_high=12;
-[e = _PWM_high -> -> 12 `i `uc ]
-"42
-[; ;main.c: 42:         _delay((unsigned long)((3000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"43
-[; ;main.c: 43:         PWM_high=25;
-[e = _PWM_high -> -> 25 `i `uc ]
-"44
-[; ;main.c: 44:         _delay((unsigned long)((3000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"75
-[; ;main.c: 75:     }
+"46
+[; ;main.c: 46:         _delay((unsigned long)((500)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"48
+[; ;main.c: 48:         while(PWM_high<PWM_set)
+[e $U 147  ]
+[e :U 148 ]
+"49
+[; ;main.c: 49:         {
+{
+"50
+[; ;main.c: 50:             _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"51
+[; ;main.c: 51:             PWM_high++;
+[e ++ _PWM_high -> -> 1 `i `uc ]
+"52
+[; ;main.c: 52:         }
+}
+[e :U 147 ]
+"48
+[; ;main.c: 48:         while(PWM_high<PWM_set)
+[e $ < -> _PWM_high `i -> _PWM_set `i 148  ]
+[e :U 149 ]
+"54
+[; ;main.c: 54:         while(PWM_high>PWM_set)
+[e $U 150  ]
+[e :U 151 ]
+"55
+[; ;main.c: 55:         {
+{
+"56
+[; ;main.c: 56:             _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"57
+[; ;main.c: 57:             PWM_high--;
+[e -- _PWM_high -> -> 1 `i `uc ]
+"58
+[; ;main.c: 58:         }
+}
+[e :U 150 ]
+"54
+[; ;main.c: 54:         while(PWM_high>PWM_set)
+[e $ > -> _PWM_high `i -> _PWM_set `i 151  ]
+[e :U 152 ]
+"61
+[; ;main.c: 61:         if (RA3 == 0) {
+[e $ ! == -> _RA3 `i -> 0 `i 153  ]
+{
+"62
+[; ;main.c: 62:             PWM_set = 12;
+[e = _PWM_set -> -> 12 `i `uc ]
+"63
+[; ;main.c: 63:             NoCommandCounter = 0;
+[e = _NoCommandCounter -> -> 0 `i `ui ]
+"64
+[; ;main.c: 64:         }
+}
+[e :U 153 ]
+"66
+[; ;main.c: 66:         if (RA1 == 0) {
+[e $ ! == -> _RA1 `i -> 0 `i 154  ]
+{
+"67
+[; ;main.c: 67:             PWM_set = 8;
+[e = _PWM_set -> -> 8 `i `uc ]
+"68
+[; ;main.c: 68:             NoCommandCounter = 0;
+[e = _NoCommandCounter -> -> 0 `i `ui ]
+"69
+[; ;main.c: 69:         }
+}
+[e :U 154 ]
+"71
+[; ;main.c: 71:         if (RA0 == 0) {
+[e $ ! == -> _RA0 `i -> 0 `i 155  ]
+{
+"72
+[; ;main.c: 72:             PWM_set = 3;
+[e = _PWM_set -> -> 3 `i `uc ]
+"73
+[; ;main.c: 73:             NoCommandCounter = 0;
+[e = _NoCommandCounter -> -> 0 `i `ui ]
+"74
+[; ;main.c: 74:         }
+}
+[e :U 155 ]
+"77
+[; ;main.c: 77:         if ((RA3==1)&&(RA1==1)&&(RA0==1))
+[e $ ! && && == -> _RA3 `i -> 1 `i == -> _RA1 `i -> 1 `i == -> _RA0 `i -> 1 `i 156  ]
+"78
+[; ;main.c: 78:         {
+{
+"79
+[; ;main.c: 79:             NoCommandCounter++;
+[e ++ _NoCommandCounter -> -> 1 `i `ui ]
+"80
+[; ;main.c: 80:             if (NoCommandCounter>=1000)
+[e $ ! >= _NoCommandCounter -> -> 1000 `i `ui 157  ]
+"81
+[; ;main.c: 81:             {
+{
+"82
+[; ;main.c: 82:                 PWM_set = PWM_period;
+[e = _PWM_set _PWM_period ]
+"83
+[; ;main.c: 83:                 NoCommandCounter=1000;
+[e = _NoCommandCounter -> -> 1000 `i `ui ]
+"84
+[; ;main.c: 84:             }
+}
+[e :U 157 ]
+"85
+[; ;main.c: 85:         }
+}
+[e :U 156 ]
+"87
+[; ;main.c: 87:     }
 }
 [e :U 144 ]
 [e $U 145  ]
 [e :U 146 ]
-"77
-[; ;main.c: 77: }
+"89
+[; ;main.c: 89: }
 [e :UE 143 ]
 }
 [v $root$_tmr2Int `(v ~T0 @X0 0 e ]
-"81
-[; ;main.c: 81: void __attribute__((picinterrupt(("")))) tmr2Int()
+"93
+[; ;main.c: 93: void __attribute__((picinterrupt(("")))) tmr2Int()
 [v _tmr2Int `(v ~T2 @X0 1 ef ]
-"82
-[; ;main.c: 82: {
+"94
+[; ;main.c: 94: {
 {
 [e :U _tmr2Int ]
 [f ]
-"83
-[; ;main.c: 83:     PWM_counter++;
+"95
+[; ;main.c: 95:     PWM_counter++;
 [e ++ _PWM_counter -> -> 1 `i `uc ]
-"85
-[; ;main.c: 85:     if(PWM_counter>=PWM_period)
-[e $ ! >= -> _PWM_counter `i -> _PWM_period `i 148  ]
-"86
-[; ;main.c: 86:     {
-{
-"87
-[; ;main.c: 87:         RA2=1;
-[e = _RA2 -> -> 1 `i `b ]
-"88
-[; ;main.c: 88:         PWM_counter=0;
-[e = _PWM_counter -> -> 0 `i `uc ]
-"89
-[; ;main.c: 89:     }
-}
-[e :U 148 ]
-"91
-[; ;main.c: 91:     if(PWM_counter>=PWM_high)
-[e $ ! >= -> _PWM_counter `i -> _PWM_high `i 149  ]
-"92
-[; ;main.c: 92:     {
-{
-"93
-[; ;main.c: 93:         RA2=0;
-[e = _RA2 -> -> 0 `i `b ]
-"94
-[; ;main.c: 94:     }
-}
-[e :U 149 ]
-"96
-[; ;main.c: 96:     TMR2IF=0;
-[e = _TMR2IF -> -> 0 `i `b ]
 "97
-[; ;main.c: 97:     return;
-[e $UE 147  ]
+[; ;main.c: 97:     if(PWM_counter>=PWM_period)
+[e $ ! >= -> _PWM_counter `i -> _PWM_period `i 159  ]
 "98
-[; ;main.c: 98: }
-[e :UE 147 ]
+[; ;main.c: 98:     {
+{
+"99
+[; ;main.c: 99:         RA2=1;
+[e = _RA2 -> -> 1 `i `b ]
+"100
+[; ;main.c: 100:         PWM_counter=0;
+[e = _PWM_counter -> -> 0 `i `uc ]
+"101
+[; ;main.c: 101:     }
+}
+[e :U 159 ]
+"103
+[; ;main.c: 103:     if(PWM_counter>=PWM_high)
+[e $ ! >= -> _PWM_counter `i -> _PWM_high `i 160  ]
+"104
+[; ;main.c: 104:     {
+{
+"105
+[; ;main.c: 105:         RA2=0;
+[e = _RA2 -> -> 0 `i `b ]
+"106
+[; ;main.c: 106:     }
+}
+[e :U 160 ]
+"108
+[; ;main.c: 108:     TMR2IF=0;
+[e = _TMR2IF -> -> 0 `i `b ]
+"109
+[; ;main.c: 109:     return;
+[e $UE 158  ]
+"110
+[; ;main.c: 110: }
+[e :UE 158 ]
 }

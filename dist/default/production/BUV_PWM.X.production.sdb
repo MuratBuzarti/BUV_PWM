@@ -11,7 +11,7 @@
 [v _init init `(v  1 e 1 0 ]
 "28 D:\MPLABX\BUV_PWM.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"81
+"93
 [v _tmr2Int tmr2Int `II(v  1 e 1 0 ]
 "157 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC10-12Fxxx_DFP/1.3.46/xc8\pic\include\proc\pic10f322.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -31,8 +31,14 @@
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "3898
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
+"4003
+[v _RA0 RA0 `VEb  1 e 0 @40 ]
+"4006
+[v _RA1 RA1 `VEb  1 e 0 @41 ]
 "4009
 [v _RA2 RA2 `VEb  1 e 0 @42 ]
+"4012
+[v _RA3 RA3 `VEb  1 e 0 @43 ]
 "4048
 [v _TMR2IE TMR2IE `VEb  1 e 0 @105 ]
 "4051
@@ -41,18 +47,21 @@
 [v _PWM_period PWM_period `uc  1 e 1 0 ]
 [v _PWM_high PWM_high `uc  1 e 1 0 ]
 [v _PWM_counter PWM_counter `uc  1 e 1 0 ]
+[v _PWM_set PWM_set `uc  1 e 1 0 ]
+"26
+[v _NoCommandCounter NoCommandCounter `ui  1 e 2 0 ]
 "28
 [v _main main `(v  1 e 1 0 ]
 {
-"77
+"89
 } 0
 "13 D:\MPLABX\BUV_PWM.X\functions.c
 [v _init init `(v  1 e 1 0 ]
 {
 "33
 } 0
-"81 D:\MPLABX\BUV_PWM.X\main.c
+"93 D:\MPLABX\BUV_PWM.X\main.c
 [v _tmr2Int tmr2Int `II(v  1 e 1 0 ]
 {
-"98
+"110
 } 0

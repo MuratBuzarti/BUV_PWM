@@ -63,10 +63,10 @@ void main()
         if ((LowPower==1)&&(MidPower==1)&&(HighPower==1))
         {
             NoCommandCounter++;
-            if (NoCommandCounter>=10000)
+            if (NoCommandCounter>=1000)
             {
                 PWM_high = PWM_period;
-                NoCommandCounter=10000;
+                NoCommandCounter=1000;
             }
         }
         

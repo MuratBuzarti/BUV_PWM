@@ -2,7 +2,7 @@
  * File:   main.c
  * Author: buzar
  *
- * Created on 23 ???? 2021 ?., 10:17
+ * Created on 23 июля 2021 г., 10:17
  */
 
 #define _XTAL_FREQ 8000000
@@ -16,8 +16,8 @@
 #define HighPower RA0
 
 
-// Период ШИМ, Задание скважности, Текущее значение счётчика периода
-unsigned char PWM_period=25, PWM_high=9, PWM_counter=0;
+// Период ШИМ, Текущее значение скважности, Текущее значение счётчика периода, Задание скважности
+unsigned char PWM_period=25, PWM_high=0, PWM_counter=0, PWM_set=0;
 
 // Счётчик времени в количествах прерываний для измерения времени
 unsigned int time_counter=0;
@@ -43,19 +43,33 @@ void main()
         __delay_ms(3000);
         */
         
+        __delay_us(500);
+        
+        while(PWM_high<PWM_set)
+        {
+            __delay_ms(1000);
+            PWM_high++;
+        }
+        
+        while(PWM_high>PWM_set)
+        {
+            __delay_ms(1000);
+            PWM_high--;
+        }
+        
         
         if (LowPower == 0) {
-            PWM_high = 12;
+            PWM_set = 12;
             NoCommandCounter = 0;
         }
 
         if (MidPower == 0) {
-            PWM_high = 8;
+            PWM_set = 8;
             NoCommandCounter = 0;
         }
 
         if (HighPower == 0) {
-            PWM_high = 3;
+            PWM_set = 3;
             NoCommandCounter = 0;
         }
 
@@ -63,13 +77,12 @@ void main()
         if ((LowPower==1)&&(MidPower==1)&&(HighPower==1))
         {
             NoCommandCounter++;
-            if (NoCommandCounter>=10000)
+            if (NoCommandCounter>=1000)
             {
-                PWM_high = PWM_period;
-                NoCommandCounter=10000;
+                PWM_set = PWM_period;
+                NoCommandCounter=1000;
             }
         }
-        
         
     }
     

@@ -2188,7 +2188,7 @@ extern __bank0 __bit __timeout;
 
 
 
-unsigned char PWM_period=25, PWM_high=0, PWM_counter=0, PWM_set=0;
+unsigned char PWM_period=25, PWM_high=25, PWM_counter=0, PWM_set=25;
 
 
 unsigned int time_counter=0;

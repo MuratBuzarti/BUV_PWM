@@ -32,7 +32,7 @@ void main()
     
     while(1)
     {
-        // Проверка зам то вот
+        /*
         PWM_high=3;
         __delay_ms(3000);
         PWM_high=8;
@@ -41,9 +41,9 @@ void main()
         __delay_ms(3000);
         PWM_high=25;
         __delay_ms(3000);
+        */
         
         
-        /*
         if (LowPower == 0) {
             PWM_high = 12;
             NoCommandCounter = 0;
@@ -69,7 +69,7 @@ void main()
                 NoCommandCounter=10000;
             }
         }
-        */
+        
         
     }
     

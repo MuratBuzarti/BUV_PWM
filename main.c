@@ -32,8 +32,7 @@ void main()
     
     while(1)
     {
-        
-        
+        // Проверка 
         PWM_high=3;
         __delay_ms(3000);
         PWM_high=8;

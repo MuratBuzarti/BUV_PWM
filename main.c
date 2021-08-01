@@ -45,13 +45,13 @@ void main()
         
         __delay_us(500);
         
-        while(PWM_high<PWM_set)
+        if(PWM_high<PWM_set)
         {
             __delay_ms(1000);
             PWM_high++;
         }
         
-        while(PWM_high>PWM_set)
+        if(PWM_high>PWM_set)
         {
             __delay_ms(1000);
             PWM_high--;

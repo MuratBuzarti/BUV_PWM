@@ -3,7 +3,7 @@ _RA1 29 0 ABS 0
 _RA2 2A 0 ABS 0
 _RA3 2B 0 ABS 0
 _PR2 12 0 ABS 0
-__S0 BE 0 ABS 0
+__S0 BC 0 ABS 0
 __S1 4E 0 ABS 0
 __S2 0 0 ABS 0
 _GIE 5F 0 ABS 0
@@ -12,12 +12,12 @@ __Lintentry 4 0 CODE 0
 __pintentry 4 0 CODE 0
 _PEIE 5E 0 ABS 0
 _WPUA 9 0 ABS 0
-__end_of_init BD 0 CODE 0
-__end_of_tmr2Int AF 0 CODE 0
+__end_of_init BB 0 CODE 0
+__end_of_tmr2Int AD 0 CODE 0
 _main 18 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
-_init AF 0 CODE 0
+_init AD 0 CODE 0
 start C 0 CODE 0
 _TRISA 6 0 ABS 0
 _PORTA 5 0 ABS 0
@@ -55,7 +55,7 @@ __pcstackBANK0 47 0 BANK0 1
 saved_w 7E 0 ABS 0
 __Hinit C 0 CODE 0
 __Linit C 0 CODE 0
-__end_of_main 92 0 CODE 0
+__end_of_main 90 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __HdataBANK0 0 0 ABS 0
@@ -70,8 +70,8 @@ __Lbank0 0 0 ABS 0
 ___latbits 0 0 ABS 0
 __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
-__ptext1 AF 0 CODE 0
-__ptext2 92 0 CODE 0
+__ptext1 AD 0 CODE 0
+__ptext2 90 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 _PWM_period 4D 0 BANK0 1
@@ -80,8 +80,8 @@ _PWM_counter 45 0 BANK0 1
 __size_of_tmr2Int 0 0 ABS 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
-_tmr2Int 92 0 CODE 0
-__Hspace_0 BE 0 ABS 0
+_tmr2Int 90 0 CODE 0
+__Hspace_0 BC 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __Hspace_1 4E 0 ABS 0
 __Lspace_1 0 0 ABS 0
@@ -97,7 +97,7 @@ __Hspace_4 400F 0 ABS 0
 __Lspace_4 0 0 ABS 0
 __HidataBANK0 0 0 ABS 0
 __LidataBANK0 0 0 ABS 0
-__pidataBANK0 BD 0 CODE 0
+__pidataBANK0 BB 0 CODE 0
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
 __pbssBANK0 40 0 BANK0 1
@@ -122,11 +122,11 @@ __pmaintext 18 0 CODE 0
 __initialization D 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
-intentry 8 17B CODE 8 0
+intentry 8 177 CODE 8 0
 bssBANK0 40 4D BANK0 40 1
 %locals
 dist/default/production\BUV_PWM.X.production.o
-C:\Users\buzar\AppData\Local\Temp\s4hs.s
+C:\Users\buzar\AppData\Local\Temp\s7t8.s
 432 D 0 CODE 0
 435 D 0 CODE 0
 467 D 0 CODE 0
@@ -147,47 +147,46 @@ main.c
 31 19 0 CODE 0
 46 1A 0 CODE 0
 48 21 0 CODE 0
-50 22 0 CODE 0
-51 2F 0 CODE 0
-48 33 0 CODE 0
-56 3A 0 CODE 0
-57 47 0 CODE 0
-54 49 0 CODE 0
-61 4F 0 CODE 0
-62 53 0 CODE 0
-63 57 0 CODE 0
-66 59 0 CODE 0
-67 5D 0 CODE 0
-68 61 0 CODE 0
-71 63 0 CODE 0
-72 67 0 CODE 0
-73 6B 0 CODE 0
-77 6D 0 CODE 0
-79 79 0 CODE 0
-80 7F 0 CODE 0
-82 88 0 CODE 0
-83 8C 0 CODE 0
+50 27 0 CODE 0
+51 34 0 CODE 0
+54 38 0 CODE 0
+56 3E 0 CODE 0
+57 4B 0 CODE 0
+61 4D 0 CODE 0
+62 51 0 CODE 0
+63 55 0 CODE 0
+66 57 0 CODE 0
+67 5B 0 CODE 0
+68 5F 0 CODE 0
+71 61 0 CODE 0
+72 65 0 CODE 0
+73 69 0 CODE 0
+77 6B 0 CODE 0
+79 77 0 CODE 0
+80 7D 0 CODE 0
+82 86 0 CODE 0
+83 8A 0 CODE 0
 functions.c
-13 AF 0 CODE 0
-16 AF 0 CODE 0
-19 B1 0 CODE 0
-20 B2 0 CODE 0
-21 B4 0 CODE 0
-22 B5 0 CODE 0
-25 B6 0 CODE 0
-26 B8 0 CODE 0
-29 BA 0 CODE 0
-30 BB 0 CODE 0
-33 BC 0 CODE 0
+13 AD 0 CODE 0
+16 AD 0 CODE 0
+19 AF 0 CODE 0
+20 B0 0 CODE 0
+21 B2 0 CODE 0
+22 B3 0 CODE 0
+25 B4 0 CODE 0
+26 B6 0 CODE 0
+29 B8 0 CODE 0
+30 B9 0 CODE 0
+33 BA 0 CODE 0
 main.c
-93 92 0 CODE 0
-95 92 0 CODE 0
-97 96 0 CODE 0
-99 9C 0 CODE 0
-100 9D 0 CODE 0
-103 9E 0 CODE 0
-105 A4 0 CODE 0
-106 A5 0 CODE 0
-108 A5 0 CODE 0
-110 A6 0 CODE 0
+93 90 0 CODE 0
+95 90 0 CODE 0
+97 94 0 CODE 0
+99 9A 0 CODE 0
+100 9B 0 CODE 0
+103 9C 0 CODE 0
+105 A2 0 CODE 0
+106 A3 0 CODE 0
+108 A3 0 CODE 0
+110 A4 0 CODE 0
 93 4 0 CODE 0

@@ -289,9 +289,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 46:         _delay((unsigned long)((500)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "48
-[; ;main.c: 48:         while(PWM_high<PWM_set)
-[e $U 147  ]
-[e :U 148 ]
+[; ;main.c: 48:         if(PWM_high<PWM_set)
+[e $ ! < -> _PWM_high `i -> _PWM_set `i 147  ]
 "49
 [; ;main.c: 49:         {
 {
@@ -305,14 +304,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 52:         }
 }
 [e :U 147 ]
-"48
-[; ;main.c: 48:         while(PWM_high<PWM_set)
-[e $ < -> _PWM_high `i -> _PWM_set `i 148  ]
-[e :U 149 ]
 "54
-[; ;main.c: 54:         while(PWM_high>PWM_set)
-[e $U 150  ]
-[e :U 151 ]
+[; ;main.c: 54:         if(PWM_high>PWM_set)
+[e $ ! > -> _PWM_high `i -> _PWM_set `i 148  ]
 "55
 [; ;main.c: 55:         {
 {
@@ -325,14 +319,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "58
 [; ;main.c: 58:         }
 }
-[e :U 150 ]
-"54
-[; ;main.c: 54:         while(PWM_high>PWM_set)
-[e $ > -> _PWM_high `i -> _PWM_set `i 151  ]
-[e :U 152 ]
+[e :U 148 ]
 "61
 [; ;main.c: 61:         if (RA3 == 0) {
-[e $ ! == -> _RA3 `i -> 0 `i 153  ]
+[e $ ! == -> _RA3 `i -> 0 `i 149  ]
 {
 "62
 [; ;main.c: 62:             PWM_set = 12;
@@ -343,10 +333,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "64
 [; ;main.c: 64:         }
 }
-[e :U 153 ]
+[e :U 149 ]
 "66
 [; ;main.c: 66:         if (RA1 == 0) {
-[e $ ! == -> _RA1 `i -> 0 `i 154  ]
+[e $ ! == -> _RA1 `i -> 0 `i 150  ]
 {
 "67
 [; ;main.c: 67:             PWM_set = 8;
@@ -357,10 +347,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69
 [; ;main.c: 69:         }
 }
-[e :U 154 ]
+[e :U 150 ]
 "71
 [; ;main.c: 71:         if (RA0 == 0) {
-[e $ ! == -> _RA0 `i -> 0 `i 155  ]
+[e $ ! == -> _RA0 `i -> 0 `i 151  ]
 {
 "72
 [; ;main.c: 72:             PWM_set = 3;
@@ -371,10 +361,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "74
 [; ;main.c: 74:         }
 }
-[e :U 155 ]
+[e :U 151 ]
 "77
 [; ;main.c: 77:         if ((RA3==1)&&(RA1==1)&&(RA0==1))
-[e $ ! && && == -> _RA3 `i -> 1 `i == -> _RA1 `i -> 1 `i == -> _RA0 `i -> 1 `i 156  ]
+[e $ ! && && == -> _RA3 `i -> 1 `i == -> _RA1 `i -> 1 `i == -> _RA0 `i -> 1 `i 152  ]
 "78
 [; ;main.c: 78:         {
 {
@@ -383,7 +373,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _NoCommandCounter -> -> 1 `i `ui ]
 "80
 [; ;main.c: 80:             if (NoCommandCounter>=1000)
-[e $ ! >= _NoCommandCounter -> -> 1000 `i `ui 157  ]
+[e $ ! >= _NoCommandCounter -> -> 1000 `i `ui 153  ]
 "81
 [; ;main.c: 81:             {
 {
@@ -396,11 +386,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "84
 [; ;main.c: 84:             }
 }
-[e :U 157 ]
+[e :U 153 ]
 "85
 [; ;main.c: 85:         }
 }
-[e :U 156 ]
+[e :U 152 ]
 "87
 [; ;main.c: 87:     }
 }
@@ -425,7 +415,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _PWM_counter -> -> 1 `i `uc ]
 "97
 [; ;main.c: 97:     if(PWM_counter>=PWM_period)
-[e $ ! >= -> _PWM_counter `i -> _PWM_period `i 159  ]
+[e $ ! >= -> _PWM_counter `i -> _PWM_period `i 155  ]
 "98
 [; ;main.c: 98:     {
 {
@@ -438,10 +428,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "101
 [; ;main.c: 101:     }
 }
-[e :U 159 ]
+[e :U 155 ]
 "103
 [; ;main.c: 103:     if(PWM_counter>=PWM_high)
-[e $ ! >= -> _PWM_counter `i -> _PWM_high `i 160  ]
+[e $ ! >= -> _PWM_counter `i -> _PWM_high `i 156  ]
 "104
 [; ;main.c: 104:     {
 {
@@ -451,14 +441,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "106
 [; ;main.c: 106:     }
 }
-[e :U 160 ]
+[e :U 156 ]
 "108
 [; ;main.c: 108:     TMR2IF=0;
 [e = _TMR2IF -> -> 0 `i `b ]
 "109
 [; ;main.c: 109:     return;
-[e $UE 158  ]
+[e $UE 154  ]
 "110
 [; ;main.c: 110: }
-[e :UE 158 ]
+[e :UE 154 ]
 }

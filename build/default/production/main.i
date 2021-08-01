@@ -2206,13 +2206,13 @@ void main()
 # 46 "main.c"
         _delay((unsigned long)((500)*(8000000/4000000.0)));
 
-        while(PWM_high<PWM_set)
+        if(PWM_high<PWM_set)
         {
             _delay((unsigned long)((1000)*(8000000/4000.0)));
             PWM_high++;
         }
 
-        while(PWM_high>PWM_set)
+        if(PWM_high>PWM_set)
         {
             _delay((unsigned long)((1000)*(8000000/4000.0)));
             PWM_high--;

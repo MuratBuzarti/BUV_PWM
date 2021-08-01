@@ -1,0 +1,21 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"6 config.c
+[p x FOSC = INTOSC ]
+"7
+[p x BOREN = ON ]
+"8
+[p x WDTE = OFF ]
+"9
+[p x PWRTE = ON ]
+"10
+[p x MCLRE = OFF ]
+"11
+[p x CP = ON ]
+"12
+[p x LVP = OFF ]
+"13
+[p x LPBOR = ON ]
+"14
+[p x BORV = HI ]
+"15
+[p x WRT = ALL ]

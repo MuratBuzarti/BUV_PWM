@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\BUV_PWM.X.production.sym \
   --cmf=dist/default/production\BUV_PWM.X.production.cmf -z -Q10F322 \
-  -oC:\Users\buzar\AppData\Local\Temp\s7t8.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\buzar\AppData\Local\Temp\sgo.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/BUV_PWM.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=04Eh-07Dh -pstack=STACK -ACODE=00h-01FFh \
   -ASTRCODE=00h-01FFh -ASTRING=00h-0FFhx2 -ACONST=00h-0FFhx2 \
@@ -14,7 +14,7 @@ Linker command line:
   -AIDLOC=02000h-02003h -DIDLOC=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\buzar\AppData\Local\Temp\s7t8.o \
+  C:\Users\buzar\AppData\Local\Temp\sgo.o \
   dist/default/production\BUV_PWM.X.production.o 
 
 Object code version is 3.11
@@ -24,7 +24,7 @@ Machine type is 10F322
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\buzar\AppData\Local\Temp\s7t8.o
+C:\Users\buzar\AppData\Local\Temp\sgo.o
                 end_init                              C        C        1        8       0
                 reset_vec                             0        0        1        0       0
                 config                             2007     2007        1        0       4

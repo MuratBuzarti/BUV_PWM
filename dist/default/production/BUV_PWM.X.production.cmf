@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\buzar\AppData\Local\Temp\s7t8.o
+$C:\Users\buzar\AppData\Local\Temp\sgo.o
 reset_vec CODE 0 0 0 1 2
 end_init CODE 0 C C 1 2
 config CONFIG 4 2007 2007 1 2
@@ -61,20 +61,20 @@ STRING BC-1FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\BUV_PWM.X.production.o
-D cinit CODE >432:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-D cinit CODE >435:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-D cinit CODE >467:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-E cinit CODE >468:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-F cinit CODE >472:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-10 cinit CODE >473:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-11 cinit CODE >474:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-12 cinit CODE >475:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-13 cinit CODE >476:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-14 cinit CODE >477:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-15 cinit CODE >478:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-16 cinit CODE >484:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-16 cinit CODE >486:C:\Users\buzar\AppData\Local\Temp\s7t8.s
-17 cinit CODE >487:C:\Users\buzar\AppData\Local\Temp\s7t8.s
+D cinit CODE >432:C:\Users\buzar\AppData\Local\Temp\sgo.s
+D cinit CODE >435:C:\Users\buzar\AppData\Local\Temp\sgo.s
+D cinit CODE >467:C:\Users\buzar\AppData\Local\Temp\sgo.s
+E cinit CODE >468:C:\Users\buzar\AppData\Local\Temp\sgo.s
+F cinit CODE >472:C:\Users\buzar\AppData\Local\Temp\sgo.s
+10 cinit CODE >473:C:\Users\buzar\AppData\Local\Temp\sgo.s
+11 cinit CODE >474:C:\Users\buzar\AppData\Local\Temp\sgo.s
+12 cinit CODE >475:C:\Users\buzar\AppData\Local\Temp\sgo.s
+13 cinit CODE >476:C:\Users\buzar\AppData\Local\Temp\sgo.s
+14 cinit CODE >477:C:\Users\buzar\AppData\Local\Temp\sgo.s
+15 cinit CODE >478:C:\Users\buzar\AppData\Local\Temp\sgo.s
+16 cinit CODE >484:C:\Users\buzar\AppData\Local\Temp\sgo.s
+16 cinit CODE >486:C:\Users\buzar\AppData\Local\Temp\sgo.s
+17 cinit CODE >487:C:\Users\buzar\AppData\Local\Temp\sgo.s
 4 intentry CODE >93:D:\MPLABX\BUV_PWM.X\main.c
 90 text2 CODE >93:D:\MPLABX\BUV_PWM.X\main.c
 90 text2 CODE >95:D:\MPLABX\BUV_PWM.X\main.c
@@ -146,37 +146,37 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 _WPUA 9 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\buzar\AppData\Local\Temp\s7t8.o
+___sp 0 0 STACK 2 stack C:\Users\buzar\AppData\Local\Temp\sgo.o
 _init 15A 0 CODE 0 text1 dist/default/production\BUV_PWM.X.production.o
 _main 30 0 CODE 0 maintext dist/default/production\BUV_PWM.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 _tmr2Int 120 0 CODE 0 text2 dist/default/production\BUV_PWM.X.production.o
-start 18 0 CODE 0 init C:\Users\buzar\AppData\Local\Temp\s7t8.o
+start 18 0 CODE 0 init C:\Users\buzar\AppData\Local\Temp\sgo.o
 __size_of_init 0 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 _PWM_counter 45 0 BANK0 1 bssBANK0 dist/default/production\BUV_PWM.X.production.o
 _NoCommandCounter 40 0 BANK0 1 bssBANK0 dist/default/production\BUV_PWM.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\s7t8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\s7t8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\s7t8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\s7t8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\s7t8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\s7t8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\sgo.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\sgo.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\sgo.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\sgo.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\sgo.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\buzar\AppData\Local\Temp\sgo.o
 wtemp0 7E 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELA 8 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\buzar\AppData\Local\Temp\s7t8.o
-___stacklo 0 0 ABS 0 - C:\Users\buzar\AppData\Local\Temp\s7t8.o
+___stackhi 0 0 ABS 0 - C:\Users\buzar\AppData\Local\Temp\sgo.o
+___stacklo 0 0 ABS 0 - C:\Users\buzar\AppData\Local\Temp\sgo.o
 start_initialization 1A 0 CODE 0 cinit dist/default/production\BUV_PWM.X.production.o
 _OSCCON 10 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 __pcstackBANK0 47 0 BANK0 1 cstackBANK0 dist/default/production\BUV_PWM.X.production.o
 _TMR2IE 69 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 _TMR2IF 61 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\buzar\AppData\Local\Temp\s7t8.o
+___int_sp 0 0 STACK 2 stack C:\Users\buzar\AppData\Local\Temp\sgo.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hcinit 30 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
@@ -210,7 +210,7 @@ __S2 0 0 ABS 0 - -
 saved_w 7E 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 __size_of_tmr2Int 0 0 ABS 0 - dist/default/production\BUV_PWM.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\buzar\AppData\Local\Temp\s7t8.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\buzar\AppData\Local\Temp\sgo.o
 __pdataBANK0 4D 0 BANK0 1 dataBANK0 dist/default/production\BUV_PWM.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __pmaintext 30 0 CODE 0 maintext dist/default/production\BUV_PWM.X.production.o

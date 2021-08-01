@@ -126,7 +126,7 @@ intentry 8 177 CODE 8 0
 bssBANK0 40 4D BANK0 40 1
 %locals
 dist/default/production\BUV_PWM.X.production.o
-C:\Users\buzar\AppData\Local\Temp\s7t8.s
+C:\Users\buzar\AppData\Local\Temp\sgo.s
 432 D 0 CODE 0
 435 D 0 CODE 0
 467 D 0 CODE 0

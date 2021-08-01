@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Sun Aug 01 15:36:39 2021
+                                                                                               Sun Aug 01 22:56:49 2021
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	10F322
@@ -364,13 +364,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
    349  0027                     u120:
    350  0027                     l681:
    351                           
-   352                           ;main.c: 49:         {;main.c: 50:             _delay((unsigned long)((1000)*(8000000/40
-      +                          00.0)));
-   353  0027  300B               	movlw	11
+   352                           ;main.c: 49:         {;main.c: 50:             _delay((unsigned long)((500)*(8000000/400
+      +                          0.0)));
+   353  0027  3006               	movlw	6
    354  0028  00CC               	movwf	??_main+2
-   355  0029  3026               	movlw	38
+   355  0029  3013               	movlw	19
    356  002A  00CB               	movwf	??_main+1
-   357  002B  305D               	movlw	93
+   357  002B  30AD               	movlw	173
    358  002C  00CA               	movwf	??_main
    359  002D                     u247:
    360  002D  0BCA               	decfsz	??_main,f
@@ -400,13 +400,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
    384  003E                     u130:
    385  003E                     l687:
    386                           
-   387                           ;main.c: 55:         {;main.c: 56:             _delay((unsigned long)((1000)*(8000000/40
-      +                          00.0)));
-   388  003E  300B               	movlw	11
+   387                           ;main.c: 55:         {;main.c: 56:             _delay((unsigned long)((500)*(8000000/400
+      +                          0.0)));
+   388  003E  3006               	movlw	6
    389  003F  00CC               	movwf	??_main+2
-   390  0040  3026               	movlw	38
+   390  0040  3013               	movlw	19
    391  0041  00CB               	movwf	??_main+1
-   392  0042  305D               	movlw	93
+   392  0042  30AD               	movlw	173
    393  0043  00CA               	movwf	??_main
    394  0044                     u257:
    395  0044  0BCA               	decfsz	??_main,f
@@ -843,7 +843,7 @@ STACK                0      0       0       2        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Sun Aug 01 15:36:39 2021
+Symbol Table                                                                                   Sun Aug 01 22:56:49 2021
 
                      l71 00BA                      l701 005F                      l711 006F  
                     l703 0061                      l713 0073                      l705 0065  

@@ -17,7 +17,7 @@
 
 
 // Период ШИМ, Текущее значение скважности, Текущее значение счётчика периода, Задание скважности
-unsigned char PWM_period=25, PWM_high=25, PWM_counter=25, PWM_set=25;
+unsigned char PWM_period=25, PWM_high=25, PWM_counter=0, PWM_set=25;
 
 // Счётчик времени в количествах прерываний для измерения времени
 unsigned int time_counter=0;

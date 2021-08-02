@@ -47,13 +47,13 @@ void main()
         
         if(PWM_high<PWM_set)
         {
-            __delay_ms(500);
+            __delay_ms(300);
             PWM_high++;
         }
         
         if(PWM_high>PWM_set)
         {
-            __delay_ms(500);
+            __delay_ms(300);
             PWM_high--;
         }
         
